@@ -1,4 +1,3 @@
-![](https://github.com/vishalrajbanti/foodDeliveryPlatform/blob/main/food-delivery.jpg)
 
 # Recipe Management System Application
 
