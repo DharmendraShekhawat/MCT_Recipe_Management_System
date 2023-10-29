@@ -24,7 +24,7 @@ public class Admin {
 
    @Pattern(regexp = "^[a-z0-9]+@admin\\.com$")
    private String adminEmailAddress;
-   
+
    private String adminPassword;
 
 
