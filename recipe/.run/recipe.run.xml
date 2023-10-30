@@ -1,9 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="recipe" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.mct.recipe.Management.System.RecipeManagementSystemApplication" />
-    <module name="recipe-Management-System" />
-    <method v="2">
-      <option name="Make" enabled="true" />
-    </method>
-  </configuration>
-</component>
