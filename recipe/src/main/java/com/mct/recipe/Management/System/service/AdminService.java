@@ -22,6 +22,7 @@ public class AdminService {
     @Autowired
     ITokenRepo tokenRepo;
 
+    //---------------------------- admin signup-------------------------------
 
     public ResponseEntity<String> adminSignup(Admin admin) throws NoSuchAlgorithmException {
 
