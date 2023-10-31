@@ -34,17 +34,22 @@ public class UserService {
 
     public ResponseEntity<String> addUser(User user) {
 
-        String encryptedPassword;
-        try {
-            encryptedPassword = AuthenticationService.encrypt(user.getUserPassword());
-        } catch (Exception ex) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("internal server issue");
-        }
-        user.setUserPassword(encryptedPassword);
-       userRepo.save(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body("user added");
-    }
+        Optional<User> optionalUser = userRepo.findFirstByUserEmailAddress(user.getUserEmailAddress());
 
+        if (optionalUser.isEmpty()) {
+            String encryptedPassword;
+            try {
+                encryptedPassword = AuthenticationService.encrypt(user.getUserPassword());
+            } catch (Exception ex) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("internal server issue");
+            }
+            user.setUserPassword(encryptedPassword);
+            userRepo.save(user);
+            return ResponseEntity.status(HttpStatus.CREATED).body("user added");
+        } else {
+            return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).body("this email address already exists try different one!!!!");
+        }
+    }
     public ResponseEntity<String> userSignIn(String userEmail, String userPassword) {
 
         if(isValidUser(userEmail,userPassword)) {
