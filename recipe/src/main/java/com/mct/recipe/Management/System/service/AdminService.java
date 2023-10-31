@@ -22,7 +22,7 @@ public class AdminService {
     @Autowired
     ITokenRepo tokenRepo;
 
-
+   //-----------------------  admin signUp -------------------
     public ResponseEntity<String> adminSignup(Admin admin) throws NoSuchAlgorithmException {
 
         Optional<Admin> optionalAdmin = adminRepo.findFirstByAdminEmailAddress(admin.getAdminEmailAddress());
