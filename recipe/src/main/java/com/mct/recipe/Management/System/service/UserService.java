@@ -32,6 +32,7 @@ public class UserService {
     @Autowired
     ITokenRepo tokenRepo;
 
+    //----------------------------- user signUp ---------------------------
     public ResponseEntity<String> addUser(User user) {
 
         Optional<User> optionalUser = userRepo.findFirstByUserEmailAddress(user.getUserEmailAddress());
